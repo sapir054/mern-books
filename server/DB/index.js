@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
-
+const dbConnectionString= process.env.DB
 mongoose
-    .connect('mongodb://127.0.0.1:27017/library', { useNewUrlParser: true })
+
+    .connect(dbConnectionString, { useNewUrlParser: true })
+    .then(()=>{console.log('MongoDB Conection')})
     .catch(e => {
         console.error('Connection error', e.message)
     })

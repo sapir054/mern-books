@@ -1,4 +1,3 @@
-
 const BASIC_API= "http://localhost:4000/"
 
 function callMyServer(){
@@ -7,8 +6,28 @@ function callMyServer(){
     .catch(err => alert(err))
 }
 
-export{
-    callMyServer,
-
+async function getAllBooks(newBook){
+    try {
+        return await fetch(BASIC_API + "books" )
+        .then(res =>{return res.json()})
+        .then(res =>{return res.data})
+    } catch (error) {
+        console.log(error);
+    }
 }
 
+async function postBook(newBook){
+    try {
+        return await fetch(BASIC_API + "books" , {method:"POST", body:JSON.stringify(newBook)})
+        .then(res =>{return res.json()})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export{
+    callMyServer,
+    postBook,
+    getAllBooks,
+
+}

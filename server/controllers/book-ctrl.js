@@ -1,5 +1,4 @@
 const bookModel = require('../models/book-model');
-const BookModel = require('../models/book-model');
 
 function createBook(req,res) {
     
